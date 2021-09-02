@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:clickable="true"
         app:fabSize="normal"
-        app:srcCompat="@drawable/ic_launcher_foreground"
+        app:srcCompat="@drawable/ic_launcher_background"
         app:layout_anchor="@id/constraintLayout"
         app:layout_anchorGravity="bottom|end"
         android:layout_margin="16dp"/>
