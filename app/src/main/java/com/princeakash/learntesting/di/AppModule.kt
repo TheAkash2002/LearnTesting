@@ -6,6 +6,9 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.princeakash.learntesting.R
 import com.princeakash.learntesting.api.RetrofitAPI
+import com.princeakash.learntesting.repository.ArtRepository
+import com.princeakash.learntesting.repository.ArtRepositoryInterface
+import com.princeakash.learntesting.roomdb.ArtDao
 import com.princeakash.learntesting.roomdb.ArtDatabase
 import com.princeakash.learntesting.util.Util.BASE_URL
 import dagger.Module
@@ -42,6 +45,10 @@ object AppModule {
             .build()
             .create(RetrofitAPI::class.java)
     }
+
+    @Singleton
+    @Provides
+    fun injectNormalRepo(dao: ArtDao, api: RetrofitAPI) = ArtRepository(dao, api) as ArtRepositoryInterface
 
     @Singleton
     @Provides
