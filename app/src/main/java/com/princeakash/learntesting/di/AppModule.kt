@@ -2,6 +2,9 @@ package com.princeakash.learntesting.di
 
 import android.content.Context
 import androidx.room.Room
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
+import com.princeakash.learntesting.R
 import com.princeakash.learntesting.api.RetrofitAPI
 import com.princeakash.learntesting.roomdb.ArtDatabase
 import com.princeakash.learntesting.util.Util.BASE_URL
@@ -39,4 +42,12 @@ object AppModule {
             .build()
             .create(RetrofitAPI::class.java)
     }
+
+    @Singleton
+    @Provides
+    fun injectGlide(@ApplicationContext context: Context) = Glide.with(context)
+        .setDefaultRequestOptions(
+            RequestOptions().placeholder(R.drawable.ic_launcher_background)
+                .error(R.drawable.ic_launcher_background)
+        )
 }

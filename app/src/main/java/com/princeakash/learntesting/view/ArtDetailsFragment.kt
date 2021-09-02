@@ -5,10 +5,14 @@ import android.view.View
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.bumptech.glide.RequestManager
 import com.princeakash.learntesting.R
 import com.princeakash.learntesting.databinding.FragmentArtsDetailsBinding
+import javax.inject.Inject
 
-class ArtDetailsFragment: Fragment(R.layout.fragment_arts_details) {
+class ArtDetailsFragment@Inject constructor(
+    val glide: RequestManager
+): Fragment(R.layout.fragment_arts_details) {
 
     private var fragmentBinding: FragmentArtsDetailsBinding? = null
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
