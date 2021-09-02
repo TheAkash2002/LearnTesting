@@ -59,4 +59,9 @@ class ArtFragment @Inject constructor(
             artRecyclerAdapter.arts = it
         })
     }
+
+    override fun onDestroyView() {
+        fragmentBinding = null
+        super.onDestroyView()
+    }
 }
